@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Dynamics() takes a list of input functions and a list of initial states and evaluates the dynamics of the system
+
 class Dynamics():
     def __init__(self,
                  functions, # as a list e.g. [f,g,h]
@@ -14,7 +16,9 @@ class Dynamics():
 
         self.functions = functions
         self.X = [[value] for value in initial_conditions]
-      
+    
+    # evaluates each function inputting the previous value until convergence or divergence
+    
     def recurse(self,
                 divergent_length=100,
                 accuracy = 0.1
@@ -57,10 +61,8 @@ class Dynamics():
                 
             if len(divergence) == len(self.X):
                 break
-            
-    
-
-#############################################################
+                
+    # univariate_plot() for a single input function 
 
     def univariate_plot(self,
                        figsize = (20,20)
@@ -113,7 +115,7 @@ class Dynamics():
         ax.set_title('Dynamic Path');
         ax.plot(dynamic_path, color = 'orange');
 
-#############################################################
+    # bivariate_plot() for two input functions
 
     def bivariate_plot(self,
                       figsize = (20,20)
@@ -152,8 +154,7 @@ class Dynamics():
 
         ax.set_title('Dynamic Path');
 
-#############################################################
-
+    # trivariate_plot() for three input functions
     
     def trivariate_plot(self, 
                        figsize = (20,20)
