@@ -1,2 +1,2 @@
 # dynamics
-Several small programs to solve dynamical problems.
+Several small programs to model discrete systems.
