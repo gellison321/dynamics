@@ -1,2 +1,2 @@
 # dynamics
-Several small programs to model discrete systems.
+Several small programs to model difference systems.
