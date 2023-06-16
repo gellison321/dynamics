@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 # Dynamics() takes a list of input functions and a list of initial states and evaluates the dynamics of the system
 class Dynamics():
     def __init__(self, 
-                 functions, # as a list e.g. [f,g,h]
-                 initial_conditions # as a list e.g. [1,.5,.6]
+                 functions = [], # as a list e.g. [f,g,h]
+                 initial_conditions = [] # as a list e.g. [1,.5,.6]
                  ):
         try:
             assert len(functions) == len(initial_conditions)
@@ -16,7 +16,7 @@ class Dynamics():
         self.X = [[value] for value in initial_conditions]
     
     # evaluates each function inputting the previous value until convergence or divergence
-    def recurse(self, divergent_length = 100, accuracy = 0.1):
+    def model(self, divergent_length = 100, accuracy = 0.1):
         while True:
             deltas = [[0] for i in range(len(self.X))]
             for i,function in enumerate(self.functions):
